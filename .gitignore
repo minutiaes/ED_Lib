@@ -1,0 +1,4 @@
+build/
+build-opencv/
+opencv/
+opencv_contrib/

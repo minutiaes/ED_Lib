@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 11)
 find_package(OpenCV)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+add_subdirectory(tests)
+
 add_library(EDLib STATIC
         ED.cpp
         ED.h
@@ -19,13 +21,25 @@ add_library(EDLib STATIC
         EDPF.cpp
         EDPF.h
         NFA.cpp
-        NFA.h)
+        NFA.h
+        edlib_detector.cpp
+        edlib_detector.h
+        marmelade.cpp
+        marmelade.h
+        pipe_server.cpp
+        pipe_server.h)
 
 add_executable(test test.cpp)
 target_link_libraries(test ${OpenCV_LIBS} EDLib)
 
 add_executable(test_ED test_ED.cpp)
 target_link_libraries(test_ED ${OpenCV_LIBS} EDLib)
+
+add_executable(test_detector test_detector.cpp)
+target_link_libraries(test_detector ${OpenCV_LIBS} EDLib)
+
+add_executable(pipe_server pipe_server.cpp)
+target_link_libraries(pipe_server ${OpenCV_LIBS} EDLib)
 
 add_executable(video_test video_test.cpp)
 target_link_libraries(video_test ${OpenCV_LIBS} EDLib)
