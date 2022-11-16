@@ -2,7 +2,7 @@
 
 ## ED_Lib
 
-[Go to ED_Lib section](#ED_Lib)
+[Go to ED_Lib section](#sec:ED_Lib)
 
 ## This Fork
 
@@ -52,7 +52,8 @@ print(result)
 ```
 
 
-# ED_Lib
+<h1 id="sec:ED_Lib">ED_Lib</h3>
+
 EDGE DRAWING LIBRARY FOR GEOMETRIC FEATURE EXTRACTION AND VALIDATION
 
 Keywords: edge detection, edge segment detection, color edge detection, line detection, line segment detection, circle detection, ellipse detection.
