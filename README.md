@@ -52,7 +52,8 @@ print(result)
 ```
 
 
-<h1 id="sec:ED_Lib">ED_Lib</h3>
+<a name="sec:ED_Lib"></a>
+# ED_Lib
 
 EDGE DRAWING LIBRARY FOR GEOMETRIC FEATURE EXTRACTION AND VALIDATION
 
