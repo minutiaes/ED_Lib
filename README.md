@@ -1,3 +1,57 @@
+# About
+
+## ED_Lib
+
+[Go to ED_Lib section](#ED_Lib)
+
+## This Fork
+
+It aims to benefit from great detection capability of ED_Lib in python environments.
+Instead of generating bindings with wrappers, it utilizes `named_pipes` for IPC. A
+server, which has detector, answers the detection requests sent from python side.
+
+# How to Build
+
+| Prerequisite            | Version           |
+|-------------------------|-------------------|
+| Microsoft Visual Studio | v16 2019 or above |
+| opencv                  | 3.4               |
+| opencv_contrib          | 3.4               |
+
+
+    $ git clone --depth=1 --branch=3.4 https://github.com/opencv/opencv.git
+    $ git clone --depth=1 --branch=3.4 https://github.com/opencv/opencv_contrib.git
+    $ md build-opencv
+    $ cd build-opencv
+    $ cmake -DWITH_JASPER=OFF -DWITH_WEBP=OFF -DBUILD_IPP_IW=OFF -DBUILD_ITT=OFF -DWITH_OPENEXR=OFF -DWITH_OPENJPEG=OFF -DBUILD_PROTOBUF=OFF -DWITH_TIFF=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_TESTS=OFF -DBUILD_opencv_gapi=OFF -DBUILD_opencv_ml=OFF -DBUILD_opencv_objdetect=OFF -DBUILD_opencv_photo=OFF -DBUILD_opencv_stitching=OFF -DBUILD_opencv_aruco=OFF -DBUILD_opencv_bioinspired=OFF -DBUILD_opencv_fuzzy=OFF -DBUILD_opencv_hfs=OFF -DBUILD_opencv_img_hash=OFF -DBUILD_opencv_surface_matching=OFF -DBUILD_opencv_bgsegm=OFF -DBUILD_opencv_intensity_transform=OFF -DBUILD_opencv_optflow=OFF -DBUILD_opencv_phase_unwrapping=OFF -DBUILD_opencv_plot=OFF -DBUILD_opencv_rapid=OFF -DBUILD_opencv_reg=OFF -DBUILD_opencv_rgbd=OFF -DBUILD_opencv_saliency=OFF -DBUILD_opencv_shape=OFF -DBUILD_opencv_stereo=OFF -DBUILD_opencv_structured_light=OFF -DBUILD_opencv_superres=OFF -DBUILD_opencv_tracking=OFF -DBUILD_opencv_videostab=OFF -DBUILD_opencv_xfeatures2d=OFF -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib/modules ../opencv -G "Visual Studio 17 2022"
+    $ cmake --build . --config Release -j 4
+    $ set OpenCV_DIR=C:\projects\ed-lib\build-opencv
+    $ cd ..
+    $ md build
+    $ cd build
+    $ cmake .. -G "Visual Studio 17 2022"
+    $ cmake --build . --config Release -j 4
+
+# How to Use
+
+1. Copy necessary OpenCV DLLs next to `pipe_server.exe`
+2. Run `pipe_server.exe`
+3. Use `EDLibDetector` class from `./python_scripts/edlib_detector.py`
+
+## Simple Example
+
+```python
+PATH_PIPE_SERVER = r"\\path\\to\\server\\pipe_server.exe"
+PATH_IMAGE = r"\\billiard.jpg"
+pipe_server = Popen([PATH_PIPE_SERVER])
+img = cv2.imread(PATH_IMAGE)
+
+detector = EDLibDetector((60, 90))
+result = detector.detect(img)
+print(result)
+```
+
+
 # ED_Lib
 EDGE DRAWING LIBRARY FOR GEOMETRIC FEATURE EXTRACTION AND VALIDATION
 
