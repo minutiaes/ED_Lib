@@ -2,7 +2,7 @@
 
 ## ED_Lib
 
-[Go to ED_Lib section](#sec:ED_Lib)
+[Go to ED_Lib section](#sec_ED_Lib)
 
 ## This Fork
 
@@ -52,7 +52,7 @@ print(result)
 ```
 
 
-<a name="sec:ED_Lib"></a>
+<a name="sec_ED_Lib"></a>
 # ED_Lib
 
 EDGE DRAWING LIBRARY FOR GEOMETRIC FEATURE EXTRACTION AND VALIDATION
